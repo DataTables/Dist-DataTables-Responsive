@@ -187,6 +187,7 @@ $.extend( Responsive.prototype, {
 
 		// Details handler
 		var details = this.c.details;
+
 		if ( details.type !== false ) {
 			that._detailsInit();
 
@@ -215,6 +216,11 @@ $.extend( Responsive.prototype, {
 				that._resizeAuto();
 				that._resize();
 			}
+		} );
+
+		dt.on( 'init.dtr', function (e, settings, details) {
+			that._resizeAuto();
+			that._resize();
 		} );
 
 		// First pass - draw the table for the current viewport size
@@ -511,15 +517,18 @@ $.extend( Responsive.prototype, {
 	{
 		var that = this;
 		var dt = this.s.dt;
+		var details = this.c.details;
 
-		var res = this.c.details.display( row, update, function () {
-			return that.c.details.renderer(
-				dt, row[0], that._detailsObj(row[0])
-			);
-		} );
+		if ( details && details.type ) {
+			var res = details.display( row, update, function () {
+				return details.renderer(
+					dt, row[0], that._detailsObj(row[0])
+				);
+			} );
 
-		if ( res === true || res === false ) {
-			$(dt.table().node()).triggerHandler( 'responsive-display.dt', [dt, row, res, update] );
+			if ( res === true || res === false ) {
+				$(dt.table().node()).triggerHandler( 'responsive-display.dt', [dt, row, res, update] );
+			}
 		}
 	},
 
@@ -613,9 +622,10 @@ $.extend( Responsive.prototype, {
 			}
 
 			return {
-				title:   dt.settings()[0].aoColumns[ i ].sTitle,
-				data:    dt.cell( rowIdx, i ).render( that.c.orthogonal ),
-				hidden:  dt.column( i ).visible() && !that.s.current[ i ]
+				title:     dt.settings()[0].aoColumns[ i ].sTitle,
+				data:      dt.cell( rowIdx, i ).render( that.c.orthogonal ),
+				hidden:    dt.column( i ).visible() && !that.s.current[ i ],
+				columnIdx: i
 			};
 		} );
 	},
@@ -694,7 +704,7 @@ $.extend( Responsive.prototype, {
 		// any columns that are not visible but can be shown
 		var collapsedClass = false;
 		for ( i=0, ien=columns.length ; i<ien ; i++ ) {
-			if ( columnsVis[i] === false && ! columns[i].never ) {
+			if ( columnsVis[i] === false && ! columns[i].never && ! columns[i].control ) {
 				collapsedClass = true;
 				break;
 			}
@@ -1040,7 +1050,7 @@ Responsive.defaults = {
 		renderer: function ( api, rowIdx, columns ) {
 			var data = $.map( columns, function ( col, i ) {
 				return col.hidden ?
-					'<li data-dtr-index="'+i+'">'+
+					'<li data-dtr-index="'+col.columnIdx+'">'+
 						'<span class="dtr-title">'+
 							col.title+
 						'</span> '+
