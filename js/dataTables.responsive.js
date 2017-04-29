@@ -663,6 +663,8 @@ $.extend( Responsive.prototype, {
 		var that = this;
 		var dt = this.s.dt;
 
+		this.s.rowIdxDisplayedModal = rowIdx;
+
 		return $.map( this.s.columns, function( col, i ) {
 			// Never and control columns should not be passed to the renderer
 			if ( col.never || col.control ) {
@@ -711,9 +713,9 @@ $.extend( Responsive.prototype, {
 		var dt = this.s.dt;
 
 		dt.rows( {page: 'current'} ).iterator( 'row', function ( settings, idx ) {
-			var row = dt.row( idx );
-
-			that._detailsDisplay( dt.row( idx ), true );
+			if (undefined !== that.s.rowIdxDisplayedModal && that.s.rowIdxDisplayedModal[0] === idx) {
+				that._detailsDisplay( dt.row( idx ), true );
+			}
 		} );
 	},
 
@@ -1067,9 +1069,17 @@ Responsive.display = {
 				} );
 			}
 			else {
-				$('div.dtr-modal-content')
+				var modalContent = $('div.dtr-modal-content');
+
+				modalContent
 					.empty()
 					.append( render() );
+
+				if ( options && options.header ) {
+					modalContent.prepend(
+					    '<h2>'+options.header( row )+'</h2>'
+					);
+				}
 			}
 
 			if ( options && options.header ) {
