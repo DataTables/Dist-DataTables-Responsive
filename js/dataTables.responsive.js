@@ -334,7 +334,8 @@ $.extend( Responsive.prototype, {
 		// require another full redraw to make complete use of those extra few
 		// pixels
 		var scrolling = dt.settings()[0].oScroll;
-		var bar = scrolling.sY || scrolling.sX ? scrolling.iBarWidth : 0;
+		var sScrollBodyDom = $( dt.table().body()).parent();
+		var bar = (scrolling.sY || scrolling.sX) && sScrollBodyDom.scrollHeight>sScrollBodyDom.clientHeight ? scrolling.iBarWidth : 0;
 		var widthAvailable = dt.table().container().offsetWidth - bar;
 		var usedWidth = widthAvailable - requiredWidth;
 
