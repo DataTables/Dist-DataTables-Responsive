@@ -1,15 +1,15 @@
-/*! Responsive 2.2.0
- * 2014-2017 SpryMedia Ltd - datatables.net/license
+/*! Responsive 2.2.0-dev
+ * 2014-2016 SpryMedia Ltd - datatables.net/license
  */
 
 /**
  * @summary     Responsive
  * @description Responsive tables plug-in for DataTables
- * @version     2.2.0
+ * @version     2.2.0-dev
  * @file        dataTables.responsive.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
- * @copyright   Copyright 2014-2017 SpryMedia Ltd.
+ * @copyright   Copyright 2014-2016 SpryMedia Ltd.
  *
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
@@ -762,8 +762,13 @@ $.extend( Responsive.prototype, {
 		$( dt.table().node() ).toggleClass( 'collapsed', collapsedClass );
 
 		var changed = false;
+		var visible = 0;
 
 		dt.columns().eq(0).each( function ( colIdx, i ) {
+			if ( columnsVis[i] === true ) {
+				visible++;
+			}
+
 			if ( columnsVis[i] !== oldVis[i] ) {
 				changed = true;
 				that._setColumnVis( colIdx, columnsVis[i] );
@@ -778,7 +783,7 @@ $.extend( Responsive.prototype, {
 
 			// If no records, update the "No records" display element
 			if ( dt.page.info().recordsDisplay === 0 ) {
-				dt.draw();
+				$('td', dt.table().body()).eq(0).attr('colspan', visible);
 			}
 		}
 	},
@@ -1319,7 +1324,7 @@ Api.register( 'responsive.hasHidden()', function () {
  * @name Responsive.version
  * @static
  */
-Responsive.version = '2.2.0';
+Responsive.version = '2.2.0-dev';
 
 
 $.fn.dataTable.Responsive = Responsive;
