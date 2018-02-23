@@ -5,7 +5,7 @@
     "files": [
         "js/**/*.js"
     ],
-    "main": "./js/dataTables.responsive.js",
+    "main": "js/dataTables.responsive.js",
     "keywords": [
         "responsive",
         "DataTables",
