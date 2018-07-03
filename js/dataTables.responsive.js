@@ -1,11 +1,11 @@
-/*! Responsive 2.2.3
+/*! Responsive 2.2.2-dev
  * 2014-2018 SpryMedia Ltd - datatables.net/license
  */
 
 /**
  * @summary     Responsive
  * @description Responsive tables plug-in for DataTables
- * @version     2.2.3
+ * @version     2.2.2-dev
  * @file        dataTables.responsive.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
@@ -268,6 +268,10 @@ $.extend( Responsive.prototype, {
 		});
 
 		dt.on( 'init.dtr', function (e, settings, details) {
+			if ( e.namespace !== 'dt' ) {
+				return;
+			}
+
 			that._resizeAuto();
 			that._resize();
 
@@ -1362,7 +1366,7 @@ Api.registerPlural( 'columns().responsiveHidden()', 'column().responsiveHidden()
  * @name Responsive.version
  * @static
  */
-Responsive.version = '2.2.3';
+Responsive.version = '2.2.2-dev';
 
 
 $.fn.dataTable.Responsive = Responsive;
