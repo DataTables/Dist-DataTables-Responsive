@@ -17,9 +17,15 @@ For inclusion of this library using a standard `<script>` tag, rather than using
 npm install datatables.net-responsive
 ```
 
+ES3 Syntax
 ```
 var $ = require( 'jquery' );
 require( 'datatables.net-responsive' )( window, $ );
+```
+
+ES6 Syntax
+```
+import 'datatables.net-responsive'
 ```
 
 ### bower
