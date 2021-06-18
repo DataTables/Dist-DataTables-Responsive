@@ -8,6 +8,5 @@
         "types/types.d.ts"
     ],
     "src-repo": "http://github.com/DataTables/Responsive",
-    "last-tag": "2.2.9",
-    "last-sync": "a278346b35aad16d3c17a1c41bea6b9b3c37e5a4"
+    "last-tag": "2.2.9"
 }
