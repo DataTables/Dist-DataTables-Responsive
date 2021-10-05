@@ -6,7 +6,7 @@
     "version": "2.2.9",
     "files": [
         "js/**/*.js",
-     "types/**/*.d.ts"
+        "types/**/*.d.ts"
     ],
     "keywords": [
         "Responsive",
@@ -17,7 +17,7 @@
         "sort"
     ],
     "dependencies": {
-        "datatables.net": ">=1.10.25",
+        "datatables.net": ">=1.11.3",
         "jquery": ">=1.7"
     },
     "moduleType": [
