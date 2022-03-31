@@ -25,6 +25,6 @@
         "table"
     ],
     "require": {
-        "datatables.net/datatables.net": ">=1.11.3"
+        "datatables.net/datatables.net": ">=1.11.5"
     }
 }

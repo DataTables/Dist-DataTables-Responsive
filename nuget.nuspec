@@ -10,7 +10,7 @@
         <license type="expression">MIT</license>
         <tags>Responsive  Datatables jQuery table</tags>
         <dependencies>
-            <dependency id="datatables.net" version="1.11.3"/>
+            <dependency id="datatables.net" version="1.11.5"/>
         </dependencies>
         <contentFiles>
             <files include="**/*" buildAction="Content"/>
@@ -21,8 +21,6 @@
         <file src="js/dataTables.responsive.js" target="contentFiles\any\any\wwwroot\js"/>
         <file src="js/dataTables.responsive.min.js" target="content\Scripts"/>
         <file src="js/dataTables.responsive.min.js" target="contentFiles\any\any\wwwroot\js"/>
-        <file src="types/types.d.ts" target="content\Scripts"/>
-        <file src="types/types.d.ts" target="contentFiles\any\any\wwwroot\js"/>
     </files>
 </package>
 
