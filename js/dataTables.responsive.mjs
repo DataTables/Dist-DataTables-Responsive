@@ -1,16 +1,15 @@
-/*! Responsive 2.4.0
- * 2014-2022 SpryMedia Ltd - datatables.net/license
+/*! Responsive 2.4.1
+ * © SpryMedia Ltd - datatables.net/license
  */
 
 import $ from 'jquery';
 import DataTable from 'datatables.net';
 
 
-
 /**
  * @summary     Responsive
  * @description Responsive tables plug-in for DataTables
- * @version     2.4.0
+ * @version     2.4.1
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
  * @copyright   SpryMedia Ltd.
@@ -1460,7 +1459,7 @@ Api.registerPlural( 'columns().responsiveHidden()', 'column().responsiveHidden()
  * @name Responsive.version
  * @static
  */
-Responsive.version = '2.4.0';
+Responsive.version = '2.4.1';
 
 
 $.fn.dataTable.Responsive = Responsive;
