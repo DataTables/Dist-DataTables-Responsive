@@ -2,8 +2,11 @@
  * © SpryMedia Ltd - datatables.net/license
  */
 
-import $ from 'jquery';
+import jQuery from 'jquery';
 import DataTable from 'datatables.net';
+
+// Allow reassignment of the $ variable
+let $ = jQuery;
 
 
 /**
@@ -664,6 +667,7 @@ $.extend( Responsive.prototype, {
 		var dt = this.s.dt;
 		var details = this.c.details;
 		var event = function (res) {
+			$(row.node()).toggleClass('parent', res !== false);
 			$(dt.table().node()).triggerHandler( 'responsive-display.dt', [dt, row, res, update] );
 		};
 
@@ -1171,13 +1175,11 @@ Responsive.display = {
 		else {
 			if ( ! row.child.isShown()  ) {
 				row.child( render(), 'child' ).show();
-				$( row.node() ).addClass( 'parent' );
 
 				return true;
 			}
 			else {
 				row.child( false );
-				$( row.node() ).removeClass( 'parent' );
 
 				return false;
 			}
@@ -1188,14 +1190,12 @@ Responsive.display = {
 		if ( (! update && row.child.isShown()) || ! row.responsive.hasHidden() ) {
 			// User interaction and the row is show, or nothing to show
 			row.child( false );
-			$( row.node() ).removeClass( 'parent' );
 
 			return false;
 		}
 		else {
 			// Display
 			row.child( render(), 'child' ).show();
-			$( row.node() ).addClass( 'parent' );
 
 			return true;
 		}
@@ -1211,6 +1211,7 @@ Responsive.display = {
 				var close = function () {
 					modal.remove(); // will tidy events for us
 					$(document).off( 'keypress.dtr' );
+					$(row.node()).removeClass( 'parent' );
 
 					closeCallback();
 				};
@@ -1233,6 +1234,8 @@ Responsive.display = {
 						} )
 					)
 					.appendTo( 'body' );
+
+				$(row.node()).addClass( 'parent' );
 
 				$(document).on( 'keyup.dtr', function (e) {
 					if ( e.keyCode === 27 ) {
