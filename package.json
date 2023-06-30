@@ -19,7 +19,7 @@
         "sort"
     ],
     "dependencies": {
-        "datatables.net": ">=1.12.1",
+        "datatables.net": ">=1.13.4",
         "jquery": ">=1.7"
     },
     "moduleType": [
