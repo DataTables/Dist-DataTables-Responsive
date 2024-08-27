@@ -968,7 +968,6 @@ $.extend(Responsive.prototype, {
 		dt.columns()
 			.eq(0)
 			.each(function (colIdx, i) {
-				//console.log(colIdx, i);
 				// Do nothing on DataTables' hidden column - DT removes it from the table
 				// so we need to slide back
 				if (! dt.column(colIdx).visible()) {
