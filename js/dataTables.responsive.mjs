@@ -63,7 +63,7 @@ let $ = jQuery;
  *  @param {object} settings DataTables settings object for the host table
  *  @param {object} [opts] Configuration options
  *  @requires jQuery 1.7+
- *  @requires DataTables 1.10.3+
+ *  @requires DataTables 2.0.0+
  *
  *  @example
  *      $('#example').DataTable( {
@@ -72,7 +72,7 @@ let $ = jQuery;
  *    } );
  */
 var Responsive = function (settings, opts) {
-	// Sanity check that we are using DataTables 1.10 or newer
+	// Sanity check that we are using DataTables 2.0.0 or newer
 	if (!DataTable.versionCheck || !DataTable.versionCheck('2')) {
 		throw 'DataTables Responsive requires DataTables 2 or newer';
 	}
