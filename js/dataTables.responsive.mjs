@@ -1623,8 +1623,10 @@ Responsive.renderer = {
 					col.columnIndex +
 					'">' +
 					'<td>' +
-					col.title +
-					':' +
+					( '' !== col.title
+						? col.title + ':'
+						: ''
+					) +
 					'</td> ' +
 					'<td>' +
 					col.data +
