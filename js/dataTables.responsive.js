@@ -1,4 +1,4 @@
-/*! Responsive 3.0.6
+/*! Responsive 3.0.7
  * © SpryMedia Ltd - datatables.net/license
  */
 
@@ -52,7 +52,7 @@ var DataTable = $.fn.dataTable;
 /**
  * @summary     Responsive
  * @description Responsive tables plug-in for DataTables
- * @version     3.0.6
+ * @version     3.0.7
  * @author      SpryMedia Ltd
  * @copyright   SpryMedia Ltd.
  *
@@ -1849,7 +1849,7 @@ Api.registerPlural(
  * @name Responsive.version
  * @static
  */
-Responsive.version = '3.0.6';
+Responsive.version = '3.0.7';
 
 $.fn.dataTable.Responsive = Responsive;
 $.fn.DataTable.Responsive = Responsive;
