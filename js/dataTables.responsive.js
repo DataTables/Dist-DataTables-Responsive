@@ -833,7 +833,7 @@ $.extend(Responsive.prototype, {
 				$(this).data('dtr-keyboard') &&
 				(activeNodeName === 'td' || activeNodeName === 'th')
 			) {
-				$(this).click();
+				$(this).trigger('click');
 			}
 		});
 
@@ -1534,13 +1534,13 @@ Responsive.display = {
 							.append(
 								$(
 									'<div class="dtr-modal-close">&times;</div>'
-								).click(function () {
+								).on('click', function () {
 									close();
 								})
 							)
 					)
 					.append(
-						$('<div class="dtr-modal-background"/>').click(
+						$('<div class="dtr-modal-background"/>').on('click',
 							function () {
 								close();
 							}
