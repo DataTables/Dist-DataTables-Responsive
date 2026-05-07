@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <version>3.0.8</version>
+        <version>4.0.0-beta.1</version>
         <id>datatables.net-responsive</id>
         <description>This is Responsive for DataTables</description>
-        <repository type="git" url="https://github.com/DataTables/Dist-DataTables-Responsive.git"/>
+        <repository type="git" url="https://github.com/DataTables/Responsive"/>
         <authors>SpryMedia Ltd</authors>
         <projectUrl>http://datatables.net</projectUrl>
         <license type="expression">MIT</license>
-        <tags>Responsive  Datatables jQuery table</tags>
+        <tags>Responsive  Datatables table</tags>
         <dependencies>
-            <dependency id="datatables.net" version="2.3.2"/>
+            <dependency id="datatables.net" version="3.0.0-0"/>
         </dependencies>
         <contentFiles>
             <files include="**/*" buildAction="Content"/>
         </contentFiles>
+        <readme>Readme.md</readme>
     </metadata>
     <files>
+        <file src="Readme.md" target=""/>
         <file src="js/dataTables.responsive.js" target="content\Scripts"/>
         <file src="js/dataTables.responsive.js" target="contentFiles\any\any\wwwroot\js"/>
         <file src="js/dataTables.responsive.min.js" target="content\Scripts"/>
@@ -27,4 +29,3 @@
         <file src="js/dataTables.responsive.mjs" target="contentFiles\any\any\wwwroot\js"/>
     </files>
 </package>
-
