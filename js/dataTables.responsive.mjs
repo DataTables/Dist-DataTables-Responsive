@@ -9,10 +9,7 @@ const childRow = function (row, update, render) {
     var rowNode = Dom.s(row.node());
     if (update) {
         if (rowNode.classHas('dtr-expanded')) {
-            let rendered = render();
-            if (rendered) {
-                row.child(rendered, 'child').show();
-            }
+            row.child(render(), 'child').show();
             return true;
         }
     }
