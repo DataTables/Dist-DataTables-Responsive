@@ -1,4 +1,4 @@
-/*! Responsive 4.0.2 for DataTables
+/*! Responsive 4.0.3 for DataTables
  * Copyright (c) SpryMedia Ltd - datatables.net/license
  */
 
@@ -897,12 +897,10 @@ class Responsive {
         var columnApis = [];
         let settings = dt.settings()[0];
         return this.s.columns
-            .filter(function (col) {
-            // Never and control columns should not be passed to the
-            // renderer
-            return col.never || col.control ? false : true;
-        })
             .map(function (col, i) {
+            if (col.never || col.control) {
+                return false;
+            }
             var dtCol = settings.columns[i];
             if (!columnApis[i]) {
                 columnApis[i] = dt.column(i);
@@ -915,7 +913,8 @@ class Responsive {
                 rowIndex: rowIdx,
                 title: columnApis[i].title()
             };
-        });
+        })
+            .filter(c => !!c);
     }
     /**
      * Find a breakpoint object from a name
@@ -1364,7 +1363,7 @@ Responsive.renderer = {
     listHiddenNodes: listHiddenNodes,
     tableAll: tableAll
 };
-Responsive.version = '4.0.2';
+Responsive.version = '4.0.3';
 
 
 Api.register('responsive()', function () {
