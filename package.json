@@ -34,8 +34,8 @@
         ".": {
             "types": "./types/types.d.ts",
             "import": "./js/dataTables.responsive.mjs",
-            "default": "./js/dataTables.responsive.mjs",
-            "require": "./js/dataTables.responsive.js"
+            "require": "./js/dataTables.responsive.js",
+            "default": "./js/dataTables.responsive.mjs"
         },
         "./js/*": "./js/*",
         "./package.json": "./package.json"
