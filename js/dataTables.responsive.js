@@ -1,4 +1,4 @@
-/*! Responsive 4.1.0 for DataTables
+/*! Responsive 4.1.1 for DataTables
  * Copyright (c) SpryMedia Ltd - datatables.net/license
  */
 
@@ -1363,7 +1363,7 @@ Responsive.renderer = {
     listHiddenNodes: listHiddenNodes,
     tableAll: tableAll
 };
-Responsive.version = '4.1.0';
+Responsive.version = '4.1.1';
 
 
 Api.register('responsive()', function () {
